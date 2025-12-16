@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#022c22" />
+    <meta name="description" content="استمع للبث المباشر لإذاعة القرآن الكريم من مكة المكرمة. تطبيق خفيف وسريع يعمل في الخلفية." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="إذاعة القرآن" />
+    
+    <title>إذاعة القرآن الكريم - بث مباشر</title>
+    
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="https://picsum.photos/id/1047/192/192" />
+    
+    <!-- Standard Favicons including 16x16 as per store guidelines -->
+    <link rel="icon" type="image/png" sizes="512x512" href="https://picsum.photos/id/1047/512/512" />
+    <link rel="icon" type="image/png" sizes="192x192" href="https://picsum.photos/id/1047/192/192" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://picsum.photos/id/1047/32/32" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://picsum.photos/id/1047/16/16" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Cairo', sans-serif;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .font-amiri {
+        font-family: 'Amiri', serif;
+      }
+      /* Custom Animation for Pulse Glow */
+      @keyframes pulse-ring {
+        0% { transform: scale(0.33); opacity: 0.5; }
+        80%, 100% { opacity: 0; }
+      }
+      .animate-pulse-ring {
+        animation: pulse-ring 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+  <body class="bg-emerald-950 text-white overflow-hidden select-none">
+    <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+            .then(registration => {
+              console.log('ServiceWorker registration successful');
+            })
+            .catch(err => {
+              console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
