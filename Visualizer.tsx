@@ -67,21 +67,13 @@ export const Visualizer: React.FC<AudioVisualizerProps> = ({ isPlaying, analyser
             
             // Right bar
             ctx.beginPath();
-            if (ctx.roundRect) {
-                ctx.roundRect(centerX + xOffset + (gap*dpr)/2, (h - height) / 2, barWidth * dpr, height, 4 * dpr);
-            } else {
-                ctx.rect(centerX + xOffset + (gap*dpr)/2, (h - height) / 2, barWidth * dpr, height);
-            }
+            ctx.roundRect(centerX + xOffset + (gap*dpr)/2, (h - height) / 2, barWidth * dpr, height, 4 * dpr);
             ctx.fill();
 
             // Left bar (mirrored)
             if (index > 0) {
                 ctx.beginPath();
-                if (ctx.roundRect) {
-                    ctx.roundRect(centerX - xOffset - (gap*dpr)/2 - (barWidth*dpr), (h - height) / 2, barWidth * dpr, height, 4 * dpr);
-                } else {
-                    ctx.rect(centerX - xOffset - (gap*dpr)/2 - (barWidth*dpr), (h - height) / 2, barWidth * dpr, height);
-                }
+                ctx.roundRect(centerX - xOffset - (gap*dpr)/2 - (barWidth*dpr), (h - height) / 2, barWidth * dpr, height, 4 * dpr);
                 ctx.fill();
             }
         });
@@ -102,11 +94,7 @@ export const Visualizer: React.FC<AudioVisualizerProps> = ({ isPlaying, analyser
             const h_idle = 8 * dpr;
             
             ctx.beginPath();
-            if (ctx.roundRect) {
-                ctx.roundRect(startX + (i * (barWidth+gap)*dpr), (h - h_idle) / 2, barWidth*dpr, h_idle, 4*dpr);
-            } else {
-                ctx.rect(startX + (i * (barWidth+gap)*dpr), (h - h_idle) / 2, barWidth*dpr, h_idle);
-            }
+            ctx.roundRect(startX + (i * (barWidth+gap)*dpr), (h - h_idle) / 2, barWidth*dpr, h_idle, 4*dpr);
             ctx.fill();
         }
       }
